@@ -1,0 +1,4 @@
+	fun function = (id = 1e06, id < 1000 andalso (not(id - 5 = -366)), id *= 3.5)
+id /= 56
+
+			varelse

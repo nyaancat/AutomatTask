@@ -1,0 +1,11 @@
+KW: var, fun, in, let, end, if, then, else, val
+NUM: вещественные числа
+INT: целые числа
+LOG: true, false
+OP: +, -,*, /, andalso, orelse, not
+AS: =
+LB: (
+RB: )
+WS: пробел, \r, \n, \t в любом количестве и любом сочетании
+ID: буква, за которой следует любой набор из букв, цифр, _
+С: запятая
