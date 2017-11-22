@@ -4,9 +4,6 @@ import entity.Automat;
 import service.FileManager;
 import service.SequenceChecker;
 
-/**
- * Created by nyaan on 22.11.2017.
- */
 public class Task1 {
     public static void taskSquare(FileManager fileManager, SequenceChecker sequenceChecker, String squarePath, String seqPath){
         try {

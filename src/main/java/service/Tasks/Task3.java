@@ -10,9 +10,7 @@ import service.SequenceChecker;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by nyaan on 22.11.2017.
- */
+
 public class Task3 {
     //fun function = (id = 1e06, id < 1000 andalso (not(id - 5 = -366)), id *= 3.5)
     //id /= 56
@@ -54,7 +52,7 @@ public class Task3 {
                 String seq = sequence.substring(firstNum, firstNum + max);
                 for (char c : seq.toCharArray()){
                     if (c != ' ')
-                        fileManager.writeToFile(automats.get(8).getSequenceParser().parseSymbol(c), outputFilePath);
+                        fileManager.writeToFile(AutomatUtils.parseSymbol(c), outputFilePath);
                     else
                         fileManager.writeToFile(Character.toString(c), outputFilePath);
                 }
@@ -74,8 +72,8 @@ public class Task3 {
     private static List<Automat> getAutomatsForTask3(FileManager fileManager, String pathToAutomats) throws Exception {
         String[] paths = new String[11];
         paths[0] = "\\KW.txt";
-        paths[1] = "\\NUM.txt";
-        paths[2] = "\\INT.txt";
+        paths[1] = "\\INT.txt";
+        paths[2] = "\\NUM.txt";
         paths[3] = "\\LOG.txt";
         paths[4] = "\\OP.txt";
         paths[5] = "\\AS.txt";
@@ -91,11 +89,6 @@ public class Task3 {
             automat.setAutomatName(path.substring(1, path.length() - 4));
             automats.add(automat);
         }
-
-        automats.get(1).setSequenceParser(new SequenceParserNumbers());
-        automats.get(2).setSequenceParser(new SequenceParserNumbers());
-        //automats.get(8).setSequenceParser(new SequenceParserChars());
-        automats.get(9).setSequenceParser(new SequenceParserChars());
 
         return automats;
     }

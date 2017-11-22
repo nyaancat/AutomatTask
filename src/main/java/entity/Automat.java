@@ -13,7 +13,6 @@ public class Automat {
     private Set<String> finishStates;
     private Set<String> startStates;
     private TransitionFunction transitionFunction;
-    private SequenceParser sequenceParser;
     private String automatName;
     private static final String ERROR_STATE_STR = "STATE_ERROR";
     private static final String EMPTY_STATE_STR = "STATE_EMPTY";
@@ -34,7 +33,7 @@ public class Automat {
         this.transitionFunction = transitionFunction;
         states.add(ERROR_STATE_STR);
         states.add(EMPTY_STATE_STR);
-        sequenceParser = new SequenceParser();
+        //sequenceParser = new SequenceParser();
     }
 
     public boolean transit(String symbol){
@@ -89,8 +88,12 @@ public class Automat {
         return currentStates;
     }
 
-    public void setStartState(Set<String> startStates) {
+    public void setStartStates(Set<String> startStates) {
         this.currentStates = startStates;
+    }
+
+    public Set<String> getStartStates() {
+        return startStates;
     }
 
     public Set<String> getFinishStates() {
@@ -107,14 +110,6 @@ public class Automat {
 
     public void setTransitionFunction(TransitionFunction transitionFunction) {
         this.transitionFunction = transitionFunction;
-    }
-
-    public SequenceParser getSequenceParser() {
-        return sequenceParser;
-    }
-
-    public void setSequenceParser(SequenceParser sequenceParser) {
-        this.sequenceParser = sequenceParser;
     }
 
     public String getAutomatName() {

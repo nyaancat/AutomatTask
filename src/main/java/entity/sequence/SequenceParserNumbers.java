@@ -3,6 +3,7 @@ package entity.sequence;
 import java.util.ArrayList;
 import java.util.List;
 
+@Deprecated
 public class SequenceParserNumbers extends SequenceParser {
 
     @Override

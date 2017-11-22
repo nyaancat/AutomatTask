@@ -1,19 +1,14 @@
 package service;
 
-import entity.Automat;
-import entity.sequence.SequenceParserChars;
-import entity.sequence.SequenceParserNumbers;
+
 import service.Tasks.Task3;
 
-import java.io.File;
-import java.util.*;
-
 public class Main {
-    private static final String PATH = "C:\\Users\\nyaan\\Downloads\\AutomatTask\\AutomatTask\\Task3";
-    private static final String SEQ_PATH = "C:\\Users\\nyaan\\Downloads\\AutomatTask\\AutomatTask\\Task3\\sequence.txt";
+    private static final String PATH = "C:\\Projects\\AutomatTask\\AutomatTask\\Task3";
+    private static final String SEQ_PATH = "C:\\Projects\\AutomatTask\\AutomatTask\\Task3\\sequence.txt";
     private static final String SEQ_AUTOMAT_PATH = "C:\\Temp\\automat.txt";
     private static final String SQUARE_AUTOMAT_PATH = "C:\\Temp\\square2.txt";
-    private final static String OUTPUT_FILE_PATH = "C:\\Users\\nyaan\\Downloads\\AutomatTask\\AutomatTask\\Task3\\output.txt";
+    private final static String OUTPUT_FILE_PATH = "C:\\Projects\\AutomatTask\\AutomatTask\\Task3\\output.txt";
 
 
     public static void main(String[] args)
@@ -22,16 +17,11 @@ public class Main {
         SequenceChecker sequenceChecker = new SequenceChecker();
         //taskSquare(fileManager, automatService);
         //taskSequence(fileManager, automatService);
-        //Task3.lexicalAnalysis(fileManager, sequenceChecker, PATH, OUTPUT_FILE_PATH, SEQ_PATH);
-        generateAutomats();
+        Task3.lexicalAnalysis(fileManager, sequenceChecker, PATH, OUTPUT_FILE_PATH, SEQ_PATH);
+        //generateAutomats();
     }
 
-    public static void generateAutomats(){
-        AutomatGenerator generator = new AutomatGenerator();
-        generator.generateIdAutomat();
-        generator.generateIntAutomat();
-        generator.generateNumAutomat();
-    }
+
 
 
 }

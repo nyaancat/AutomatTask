@@ -2,9 +2,12 @@ package service;
 
 import entity.Automat;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class SequenceChecker {
+
+
 
     public int[] checkSequenceForTask3(String sequenceStr, List<Automat> automats, int firstNum) {
         int[] counts = new int[automats.size()];
@@ -13,7 +16,7 @@ public class SequenceChecker {
             for (int i = 0; i < automats.size(); i++) {
 
                 Automat automat = automats.get(i);
-                String symbol = automat.getSequenceParser().parseSymbol(sequenceStr.charAt(j));
+                String symbol = AutomatUtils.parseSymbol(sequenceStr.charAt(j));
 
                 automat.transit(symbol);
 
@@ -28,7 +31,7 @@ public class SequenceChecker {
 
     public int checkSequenceForTask2(String sequenceStr, Automat automat, int firstNum){
         int count = 0;
-        List<String> sequence = automat.getSequenceParser().parseSequence(sequenceStr);
+        List<String> sequence = AutomatUtils.parseSequence(sequenceStr);
         for (int i = firstNum; i < sequence.size(); i++){
             automat.transit(sequence.get(i));
 

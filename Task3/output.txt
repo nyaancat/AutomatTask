@@ -32,7 +32,7 @@ NUM: 5
 WS:  |
 AS: =
 WS:  |
-NUM: -366
+INT: -366
 RB: )
 RB: )
 C: ,

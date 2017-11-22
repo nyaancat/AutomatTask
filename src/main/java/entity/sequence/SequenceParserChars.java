@@ -4,7 +4,7 @@ package entity.sequence;
 import javax.sound.midi.Sequence;
 import java.util.ArrayList;
 import java.util.List;
-
+@Deprecated
 public class SequenceParserChars extends SequenceParser {
 
     @Override
