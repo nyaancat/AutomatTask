@@ -22,7 +22,7 @@ public class FileManager {
      * etc
      */
 
-    FileManager(){
+    public FileManager(){
         try {
             File file = new File(OUTPUT_FILE_PATH);
             if (file.exists())
@@ -71,8 +71,18 @@ public class FileManager {
 //        return out;
 //    }
 
-    public void writeToFile(String str){
-        try ( BufferedWriter out = new BufferedWriter(new FileWriter(OUTPUT_FILE_PATH, true))){
+    public void deleteFile(String path){
+        try {
+            File file = new File(path);
+            if (file.exists())
+                file.delete();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void writeToFile(String str, String pathToFile){
+        try ( BufferedWriter out = new BufferedWriter(new FileWriter(pathToFile, true))){
             out.write(str);
 
         } catch (Exception e) {

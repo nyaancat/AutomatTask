@@ -1,0 +1,21 @@
+package service.Tasks;
+
+import entity.Automat;
+import service.FileManager;
+import service.SequenceChecker;
+
+/**
+ * Created by nyaan on 22.11.2017.
+ */
+public class Task1 {
+    public static void taskSquare(FileManager fileManager, SequenceChecker sequenceChecker, String squarePath, String seqPath){
+        try {
+            Automat automat = fileManager.getInputAutomat(squarePath);
+            String sequence = fileManager.getInputSequence(seqPath);
+            sequenceChecker.checkSequenceForTask1(sequence, automat);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}

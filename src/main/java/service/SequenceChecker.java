@@ -4,9 +4,6 @@ import entity.Automat;
 
 import java.util.List;
 
-/**
- * Created by nyaan on 09.11.2017.
- */
 public class SequenceChecker {
 
     public int[] checkSequenceForTask3(String sequenceStr, List<Automat> automats, int firstNum) {
