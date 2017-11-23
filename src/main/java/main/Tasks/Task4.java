@@ -1,4 +1,4 @@
-package service.Tasks;
+package main.Tasks;
 
 public class Task4 {
 

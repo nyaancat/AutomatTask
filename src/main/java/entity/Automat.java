@@ -25,15 +25,32 @@ public class Automat {
                    TransitionFunction transitionFunction){
 
         this.states = states;
-
         this.alphabet = alphabet;
         this.currentStates = startStates;
         this.startStates = startStates;
         this.finishStates = finishStates;
         this.transitionFunction = transitionFunction;
         states.add(ERROR_STATE_STR);
-        states.add(EMPTY_STATE_STR);
+        //states.add(EMPTY_STATE_STR);
         //sequenceParser = new SequenceParser();
+    }
+
+    public Automat(Set<String> states,
+                   Set<String> alphabet,
+                   Set<String> startStates,
+                   Set<String> finishStates,
+                   TransitionFunction transitionFunction,
+                   String automatName){
+
+        this.automatName = automatName;
+        this.states = states;
+        this.alphabet = alphabet;
+        this.currentStates = startStates;
+        this.startStates = startStates;
+        this.finishStates = finishStates;
+        this.transitionFunction = transitionFunction;
+        states.add(ERROR_STATE_STR);
+       // states.add(EMPTY_STATE_STR);
     }
 
     public boolean transit(String symbol){

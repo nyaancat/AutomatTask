@@ -1,7 +1,8 @@
 package service;
 
-import java.util.ArrayList;
-import java.util.List;
+import main.AutomatGenerator;
+
+import java.util.*;
 
 public class AutomatUtils {
 
@@ -53,5 +54,13 @@ public class AutomatUtils {
         if(symbol == '\n')
             return "\\n";
         return Character.toString(symbol);
+    }
+
+    public static Set<String> renameSet(Set<String> oldStates, Map<String, String> oldNameToNewName){
+        Set<String> newStates = new HashSet<>();
+        for (String state : oldStates) {
+            newStates.add(oldNameToNewName.get(state));
+        }
+        return newStates;
     }
 }

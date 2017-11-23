@@ -1,8 +1,6 @@
-package service.Tasks;
+package main.Tasks;
 
 import entity.Automat;
-import entity.sequence.SequenceParserChars;
-import entity.sequence.SequenceParserNumbers;
 import service.AutomatUtils;
 import service.FileManager;
 import service.SequenceChecker;

@@ -1,7 +1,9 @@
-package service;
+package main;
 
 
-import service.Tasks.Task3;
+import main.Tasks.Task3;
+import service.FileManager;
+import service.SequenceChecker;
 
 public class Main {
     private static final String PATH = "C:\\Projects\\AutomatTask\\AutomatTask\\Task3";

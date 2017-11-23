@@ -1,5 +1,7 @@
 package entity;
 
+import service.AutomatUtils;
+
 import java.util.*;
 
 public class TransitionFunction {
@@ -36,13 +38,35 @@ public class TransitionFunction {
             startStateToSymbolAndFinishStates.get(statefrom).put(symbol, result);
         }
     }
+
+//    public void union(TransitionFunction transitionFunction){
+//        this.startStateToSymbolAndFinishStates.putAll(transitionFunction.startStateToSymbolAndFinishStates);
+//    }
+
+//    public void rename(Map<String, String> oldNameToNewName){
+//        //TransitionFunction newTransitionFunction = new TransitionFunction();
+//        clearStartStateToSymbolAndFinishStatesMap();
+//        for (String startState : startStateToSymbolAndFinishStates.keySet()){
+//            for (String symbol : startStateToSymbolAndFinishStates.get(startState).keySet()) {
+//                this.addRow(oldNameToNewName.get(startState),
+//                        symbol,
+//                        AutomatUtils.renameSet(startStateToSymbolAndFinishStates.get(startState).get(symbol), oldNameToNewName));
+//            }
+//        }
+//    }
+//
+//    private void clearStartStateToSymbolAndFinishStatesMap(){
+//        this.startStateToSymbolAndFinishStates = new HashMap<String, Map<String, Set<String>>>();
+//    }
+
+    @Deprecated
     public Map<String, Map<String, Set<String>>> getStartStateToSymbolAndFinishStatesMap() {
         return startStateToSymbolAndFinishStates;
     }
 
-    public void setStartStateToSymbolAndFinishStatesMap(Map<String, Map<String, Set<String>>> startStateToSymbolAndFinishStates) {
-        this.startStateToSymbolAndFinishStates = startStateToSymbolAndFinishStates;
-    }
+//    public void setStartStateToSymbolAndFinishStatesMap(Map<String, Map<String, Set<String>>> startStateToSymbolAndFinishStates) {
+//        this.startStateToSymbolAndFinishStates = startStateToSymbolAndFinishStates;
+//    }
 
 
 

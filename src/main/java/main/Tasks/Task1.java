@@ -1,4 +1,4 @@
-package service.Tasks;
+package main.Tasks;
 
 import entity.Automat;
 import service.FileManager;
