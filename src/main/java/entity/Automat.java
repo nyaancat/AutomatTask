@@ -77,6 +77,17 @@ public class Automat {
         return false;
     }
 
+    public void addState(String state){
+        this.states.add(state);
+    }
+
+    public void addStartState(String state){
+        this.startStates.add(state);
+    }
+
+    public void addFinishState(String state){
+        this.finishStates.add(state);
+    }
     public void setStart(){
         setCurrentStates(startStates);
     }

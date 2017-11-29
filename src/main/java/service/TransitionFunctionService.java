@@ -18,7 +18,7 @@ public class TransitionFunctionService {
         return newTransitionFunction;
     }
 
-    private void addTransitionFromFinishToStart(TransitionFunction transitionFunction,
+    public void addTransitionFromFinishToStart(TransitionFunction transitionFunction,
                                                Set<String> startStates, Set<String> finishStates){
         for (String startState : startStates){
             Map<String, Set<String>> symbolToDestinationState =

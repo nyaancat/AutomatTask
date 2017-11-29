@@ -28,6 +28,11 @@ public class AutomatService {
         alphabet.addAll(automat2.getAlphabet());
         automatName += '&' + automat2.getAutomatName();
         transitionFunctionService.concat(transitionFunction, automat2.getTransitionFunction(), startStates, finishStates);
+
+        if (hasEqualStates(finishStates, startStates)){
+            finishStates.addAll(automat1.getFinishStates());
+        }
+
         Automat automat = new Automat(states, alphabet, startStates, finishStates, transitionFunction, automatName);
         return automat;
     }
@@ -52,6 +57,17 @@ public class AutomatService {
         transitionFunctionService.union(transitionFunction, automat2.getTransitionFunction());
 
         Automat automat = new Automat(states, alphabet, startStates, finishStates, transitionFunction, automatName);
+        return automat;
+    }
+
+    public Automat iterate(Automat automat) {
+        int stateNum = 0;
+        renameAutomat(automat, stateNum);
+        transitionFunctionService.addTransitionFromFinishToStart(automat.getTransitionFunction(),
+                automat.getStartStates(), automat.getFinishStates());
+        automat.addState("STATE_" + stateNum);
+        automat.addStartState("STATE_" + stateNum);
+        automat.addFinishState("STATE_" + stateNum);
         return automat;
     }
 
@@ -83,10 +99,9 @@ public class AutomatService {
 
     }
 
-//    private void addTransitionFromFinishToStart(TransitionFunction transitionFunction,
-//                                                Set<String> startStates, Set<String> finishStates){
-//
-//
-//    }
-
+    private boolean hasEqualStates(Set<String> states1, Set<String> states2){
+        Set<String> diff = new HashSet<>(states1);
+        diff.retainAll(states2);
+        return !diff.isEmpty();
+    }
 }
