@@ -59,7 +59,6 @@ public class TransitionFunction {
 //        this.startStateToSymbolAndFinishStates = new HashMap<String, Map<String, Set<String>>>();
 //    }
 
-    @Deprecated
     public Map<String, Map<String, Set<String>>> getStartStateToSymbolAndFinishStatesMap() {
         return startStateToSymbolAndFinishStates;
     }

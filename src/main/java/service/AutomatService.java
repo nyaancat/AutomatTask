@@ -12,7 +12,7 @@ public class AutomatService {
 
     public TransitionFunctionService transitionFunctionService = new TransitionFunctionService();
 
-    public void concat(Automat automat1, Automat automat2) {
+    public Automat concat(Automat automat1, Automat automat2) {
         int stateNum = 0;
         renameAutomat(automat1, stateNum);
         renameAutomat(automat2, stateNum);
@@ -27,10 +27,11 @@ public class AutomatService {
         states.addAll(automat2.getStates());
         alphabet.addAll(automat2.getAlphabet());
         automatName += '&' + automat2.getAutomatName();
-        transitionFunctionService.union(transitionFunction, automat2.getTransitionFunction());
+        transitionFunctionService.concat(transitionFunction, automat2.getTransitionFunction(), startStates, finishStates);
+        Automat automat = new Automat(states, alphabet, startStates, finishStates, transitionFunction, automatName);
+        return automat;
     }
 
-    //TODO: refactor for TF Service
     public Automat union(Automat automat1, Automat automat2){
         int stateNum = 0;
         renameAutomat(automat1, stateNum);
@@ -49,7 +50,6 @@ public class AutomatService {
         alphabet.addAll(automat2.getAlphabet());
         automatName += '+' + automat2.getAutomatName();
         transitionFunctionService.union(transitionFunction, automat2.getTransitionFunction());
-        //TODO:add transition
 
         Automat automat = new Automat(states, alphabet, startStates, finishStates, transitionFunction, automatName);
         return automat;
@@ -73,7 +73,7 @@ public class AutomatService {
         newCurrStates = AutomatUtils.renameSet(automat.getCurrentStates(), oldNameToNewName);
         newStartStates = AutomatUtils.renameSet(automat.getStartStates(), oldNameToNewName);
         newFinishStates = AutomatUtils.renameSet(automat.getFinishStates(), oldNameToNewName);
-
+        newTransitionFunction = transitionFunctionService.renameFunction(oldNameToNewName, automat.getTransitionFunction());
 
         automat.setStates(newStates);
         automat.setCurrentStates(newCurrStates);
@@ -83,16 +83,10 @@ public class AutomatService {
 
     }
 
-    private void addTransitionFromFinishToStart(TransitionFunction transitionFunction,
-                                                Set<String> startStates, Set<String> finishStates){
-
-    }
-
-//    private Set<String> renameSet(Set<String> oldStates, Map<String, String> oldNameToNewName){
-//        Set<String> newStates = new HashSet<>();
-//        for (String state : oldStates) {
-//            newStates.add(oldNameToNewName.get(state));
-//        }
-//        return newStates;
+//    private void addTransitionFromFinishToStart(TransitionFunction transitionFunction,
+//                                                Set<String> startStates, Set<String> finishStates){
+//
+//
 //    }
+
 }
